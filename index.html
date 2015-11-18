@@ -3,14 +3,342 @@
 <html>
 <head>
     <title>Figgy Games</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="css/style.css" rel="stylesheet">
+                  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+    <script src="js/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+    <!--favicon:-->
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 
-<body style="background-color: yellow;">
+<body style="width:100%;height:100%;background-image: url('figwallpaper.png'); z-index: -1;">
+    
+<style>
+  * {
+    margin: 0;
+  }
+  html, body {
+    height: 90%;
+  }
+  .page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -200px; 
+  }
+  .page-wrap:after {
+    content: "";
+    display: none;
+  }
+  .site-footer, .page-wrap:after {
+    width:105%;
+  }
 
-<div align="center"; style="display:block; border: solid grey; width: 60%; height: 40%;padding:50px;">
-    <p style="font-family: sans-serif; font-size: 2vw; font-color: black; font-weight:600;padding: 20px;">Welcome to Figgy Games</p>
-    <p style="font-family: sans-serif; font-size: 2vw; font-color: black; font-weight:600;padding: 20px;">This site is under construction!</p>
+  /*carousel*/
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      max-width:350px;
+      margin: auto;
+      border: 10px solid darkred;
+      border-radius:8px;
+  }
+
+  /*custom nav bar*/
+  .figgy-nav{
+        margin-top:-20px;
+  }
+  .figgy-title{
+    font-family:'JandaManateeSolid', Arial;
+    font-size:75px;
+    color: darkred !important;
+    margin-top:-35px;
+  }
+  .nav.navbar-nav{
+    background-color:none;
+    
+  }
+  .navbar{
+    min-height:50px;
+    height: 100px !important;
+  }
+  .navbar .nav{
+    margin-top:-20px;
+  }
+  .container-fluid{
+    margin-top:25px;
+  }
+  .nav .navbar-nav .navbar-right{
+    font-weight: 800;
+    font-family:Arial;
+  }
+  #about{
+    margin:15%;
+    text-align: center;
+    margin-top:700px;
+    margin-bottom:-250px;
+  }
+  .aboutFiggy{
+    display:block;
+    padding:50px;
+    width:100%;
+    font-family:'JandaManateeSolid', Arial;
+    color:darkred;
+    font-weight:800;
+    text-align: center;
+    font-size:35px;
+    height: 200px;
+  }
+  #myCarousel, #myCarousel2{
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: -0px;
+    margin-left: 15%;
+  }
+  .left{
+    width: 50%;
+    float: left;
+  }
+  .right{
+    display:block;
+    width: 47%;/* padding:20px; */
+    float: right;
+    margin-top: 100px;
+    height:240px;
+    padding:20px;
+  }
+  .top{
+    margin-bottom:550px;
+  }
+  .bottom{
+    margin-bottom:100px;
+  }  
+
+
+@font-face{
+  font-family: "JandaManateeSolid";
+  src: url(./css/fonts/janda_manatee/JandaManateeBubble.ttf);
+}
+@font-face{
+  font-family: "ViktorsLittlCreepy";
+  src: url(./css/fonts/viktors/ViktorsLittlCreepy.ttf);
+}
+  @media (max-width:760px) {
+    .figgy-nav{
+        margin-top:0px;
+    }
+    .figgy-title{
+        font-size:30px;
+        margin-top:-8px;
+      }
+    .navbar-header{
+        margin-top:15px;
+    }
+    .navbar{
+        max-height: 55px;
+    }
+    .navbar .nav{
+        margin-top:0px;
+    }
+    .navbar-default .navbar-toggle{
+        border-color: darkred;
+    }
+    .container-fluid{
+        margin-top:0px;
+    }
+    #about{
+        margin:150px 10px 50px 10px;
+        width:95%;
+    }
+    .aboutFiggy{
+        border-radius: 5px;
+        height: 200px;
+    }
+    #myCarousel, #myCarousel2{
+        width: 100%;
+        margin-left:0px;
+    }
+    .left{
+        margin-top:-70px;
+        width: 100%;
+        float: none;
+      }
+    .right{
+        padding-top:10px;
+        display:block;
+        width: 120%;/* padding:20px; */
+        float: none;
+        margin-top: -50px;
+        
+      }
+    .top{
+      margin-bottom:-100px;
+    }
+    .bottom{
+        margin-bottom:100px;
+    }
+    .carousel-indicators{
+        margin-top:0px;
+    }
+  }
+  
+</style>
+
+  
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(64,8,10,0.1); color:rgb(247,217,31); height:50px;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand figgy-nav figgy-title" href="#">FIGGY GAMES</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right" style="font-weight:700;margin-right:5px;">
+        <li class="active"><a href="#">Games <span class="sr-only">(current)</span></a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="eula.html">EULA</a></li>
+        <li><a href="mailto: figgygames@gmail.com" target="_blank">Contact</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="span12 top" style="padding-top:50px;">
+    <div class="span3" style="display:block"></div>
+    <div class="span3 left">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img src="bigger1.png" alt="Bigger1">
+              </div>
+              <div class="item">
+                <img src="bigger2.png" alt="Bigger2">
+              </div>
+              <div class="item">
+                <img src="bigger3.png" alt="Bigger3">
+              </div>
+              <div class="item">
+                <img src="bigger4.png" alt="Bigger4">
+              </div>
+                <!-- Indicators -->
+              <div style="margin-top:80px;"> 
+                <ol class="carousel-indicators" style="left: 50%;">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                  <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>
+              </div> 
+            </div> 
+        </div> 
+    </div>    
+    <div class="span3 right">
+        <div style="display:block;width:80%; background-color:rgba(255,255,255,0.9);border-radius:10px;padding:0px 30px 10px 30px;">
+            <h2 style="text-align: center;margin-bottom:10px;font-size:smaller;margin-top:-20px;"><span>
+                              <span style="font-size:4vw;color:#FF6E00;">B</span><span style="font-size:5vw;color:#FFB612;">I</span><span style="font-size:6vw;color:#7AB800;">G</span><span style="font-size:7vw;color:#4C5CC5;">G</span><span style="font-size:8vw;color:#FFB612;">E</span><span style="font-size:10vw;color:#00A1DE;">R</span>
+                            </span></h2>
+            <h5 style="text-align: center;font-weight:300;color:#4C5CC5;">BIGGER is a game based on 2048 and Threes, produced by Figgy Games. When two circle tiles of the same size touch, they merge into one and become BIGGER!</h5>
+            <div style="margin-left:15px;margin-bottom:20px;margin-top:-10px;">
+                <li>Use your finger to swipe tiles on the screen</li>
+                <li>Combine tiles of the same size to make bigger tiles</li>
+                <li>Keep combining until you reach the biggest tile!</li>
+            </div>    
+            <h5 style="text-align: center;color:#FF6E00;margin-bottom:20px;">Features:</h5>
+            <div style="margin-left:15px;margin-bottom:0px;margin-top:-10px;">
+                <li>No understanding of numbers or math necessary</li>
+                <li>Made for people of all ages</li>
+                <li>Recommended for toddlers and children</li>
+            </div>
+            <div style="text-align: center;margin:10px;">
+                <a href="https://play.google.com/store/apps/details?id=com.alexhiguera.bigger"><img src="googleplay.png" style="margin:5px;"/></a>
+            </div>
+        </div>
+    </div>
+    <div class="span3" style="display:block"></div>
 </div>
+</br></br>
+<div class="span12" style="padding-top:350px;">
+    <div class="span3" style="display:block"></div>
+    <div class="span3 left">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img style="max-height: 520px;" src="ff1.jpg" alt="FF1">
+              </div>
+              <div class="item">
+                <img src="ff2.png" alt="FF2">
+              </div>
+              <div class="item">
+                <img src="ff3.png" alt="FF3">
+              </div>
+                <!-- Indicators -->
+              <div style="margin-top:80px;"> 
+                <ol class="carousel-indicators" style="left: 50%;">
+                  <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel2" data-slide-to="1"></li>
+                  <li data-target="#myCarousel2" data-slide-to="2"></li>
+                </ol>
+              </div> 
+            </div> 
+        </div> 
+    </div>    
+    <div class="span3 right bottom">
+        <div style="display:block;width:80%; background-color:rgba(255,255,255,0.9);border-radius:10px;padding:20px 30px 10px 30px;">
+            <h2 style="text-align: center;margin-bottom:10px;font-size:smaller;"><span>
+                <span style="font-family:'ViktorsLittlCreepy';color:#FF6E00;font-size: 5vw;letter-spacing: 10px;">FUNHOUSE FISHBOWL</span>
+            </h2>
+            <h5 style="text-align: center;font-weight:300;color:#4C5CC5;">Funhouse Fishbowl is a fishbowl simulation game produced by Figgy Games. Move your fish by tapping or swiping your screen.</h5>
+            <div style="margin-left:15px;margin-bottom:20px;margin-top:-10px;">
+                <li>Use your finger to tap and place your fish in a new area</li>
+                <li>Swipe the screen to make your fish move</li>
+            </div>    
+            <h5 style="text-align: center;color:#FF6E00;margin-bottom:20px;">Features:</h5>
+            <div style="margin-left:15px;margin-bottom:0px;margin-top:-10px;">
+                <li>Made for people of all ages</li>
+                <li>Recommended for children, adults, and animals</li>
+            </div>
+            <div style="text-align: center;margin:10px;">
+                <a href="https://play.google.com/store/apps/details?id=com.alexhiguera.funhouse_fishbowl"><img src="googleplay.png" style="margin:5px;"/></a>
+            </div>
+        </div>
+    </div>
+    <div class="span3" style="display:block"></div>
+</div>
+
+
+
+
+<div id="about" class="span12">
+    <div class="span4" style="display:none;"></div>
+    <div class="span4 aboutFiggy figgyTitle">
+        <div><h1>ABOUT FIGGY GAMES:</h1></div>
+        <div>Figgy Games makes mobile apps for the young and young at heart.  We focus on simple, well designed games that everyone can enjoy.</div>
+    </div>    
+    <div class="span4" style="display:none;"></div>
+</div>
+<footer class="site-footer">
+    <div style="z-index: 100;width: 100%;margin-left:-20px;height: 500px;margin-top: 150px!important;margin-bottom: -50px!important; background-image: url('landscape.png');background-size: 100% 100%;background-repeat: no-repeat;">
+    </div>
+    <p style="z-index:1000;color:black;font-size:medium;text-align: center;font-weight: 700;">Figgy Games &copy; 2015</p>
+</footer>
 
 </body>
 </html>
